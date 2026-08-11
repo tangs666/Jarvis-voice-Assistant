@@ -1,21 +1,85 @@
 # Jarvis-Voice-Assistant
 
-这是一个基于 Ollama 和 Vosk 开发的本地轻量级 AI 语音助手，具备**极速语音打断**与**物理按键响应**机制，让交互更加自然顺畅。
+基于 Ollama (Qwen2.5) 与 Vosk 开发的本地轻量级 AI 语音助手，集成 PyQt6 动态波形界面、**毫秒级语音打断**与**空格键物理打断**机制。
 
-## ✨ 核心亮点
+---
 
-* **毫秒级语音打断**：内置流式语音识别，说出“停一下”、“暂停”等关键词可立即打断 AI 播报。
-* **物理空格秒停**：按下键盘空格键（Space）瞬间强行拉闸切断音频，0 延迟响应。
-* **本地隐私安全**：基于 Ollama 运行本地大语言模型（默认 Qwen2.5），无需联网，数据绝不出户。
-* **可视化波形 UI**：基于 PyQt6 实现的动态波形界面，根据说话音量实时响应。
-* **对话持久化**：自动保存角色设定与历史上下文记忆。
+## ✨ 核心特性
 
-## 🚀 快速开始
+* **毫秒级双重打断**：说出“停下”、“暂停”、“等一下”等词汇，或按键盘 **`Space`（空格键）** 瞬间拉闸切断播报。
+* **完全本地运行**：依托 Ollama 本地大语言模型，数据绝不出户，零网络依赖。
+* **可视化动态 UI**：基于 PyQt6 实现的声音波形界面，随说话音量实时动态变化。
+* **全平台自适应**：无缝兼容 Windows、macOS 和 Linux。
 
-### 1. 准备环境
-* 安装 [Ollama](https://ollama.com/) 并拉取模型：
+---
+
+## 🛠️ 环境准备与详细配置
+
+### 1. 运行环境要求
+* **Python 3.9 或以上**
+* 必须先安装并启动 [Ollama](https://ollama.com/)
+
+### 2. 下载并启动本地大模型
+根据你的电脑配置选择拉取合适的模型：
+
+* **基础配置 / 轻量设备**：
   ```bash
   ollama run qwen2.5:1.5b
-vosk-model-small-cn-0.22
-pip install vosk PyQt6 pygame pyaudio numpy requests edge-tts
-python jarvis_gui.py
+  ```
+* **高配设备 / 追求更好回答质量**（内存 16G+）：
+  ```bash
+  ollama run qwen2.5:7b
+  ```
+> 💡 *若使用 7B 模型，只需打开 `jarvis_gui.py` 将模型名称改为 `qwen2.5:7b` 即可。*
+
+### 3. 下载 Vosk 语音识别模型（跨平台通用）
+1. 前往 [Vosk 官方模型下载页](https://alphacephei.com/vosk/models) 下载中文轻量模型：`vosk-model-small-cn-0.22`。
+2. 将下载好的压缩包解压后，重命名文件夹为 `model`，并直接放入**项目根目录**下。
+
+**标准目录结构**：
+```text
+Jarvis-voice-Assistant/
+├── jarvis_gui.py
+├── model/               <-- Vosk 语音模型文件夹（里面包含 am, conf 等子文件夹）
+└── README.md
+```
+
+### 4. 安装 Python 依赖包（多系统适配）
+
+根据你的操作系统执行对应命令：
+
+#### 🔹 Windows 系统：
+```bash
+pip install PyQt6 vosk pygame pyaudio numpy requests edge-tts
+```
+*(若安装 `pyaudio` 报错，请先执行 `pip install pipwin`，再执行 `pipwin install pyaudio`)*
+
+#### 🔹 macOS 系统：
+```bash
+brew install portaudio
+pip install PyQt6 vosk pygame pyaudio numpy requests edge-tts
+```
+
+#### 🔹 Linux 系统 (Ubuntu/Debian)：
+```bash
+sudo apt-get install python3-pyaudio portaudio19-dev
+pip install PyQt6 vosk pygame pyaudio numpy requests edge-tts
+```
+
+---
+
+## 🚀 运行与使用说明
+
+1. 确保后台已启动 Ollama 服务。
+2. 在项目根目录下打开终端，运行启动命令：
+   ```bash
+   python jarvis_gui.py
+   ```
+3. **快捷打断操作**：
+   * **语音打断**：AI 在回答播报时，直接对麦克风喊“停一下”、“暂停”或“安静”。
+   * **按键打断**：按下键盘 **`Space`（空格键）** 随时强行终止播报。
+
+---
+
+## 📄 开源协议
+本项目基于 MIT 协议开源，欢迎提交 Issue 和 Pull Request！
