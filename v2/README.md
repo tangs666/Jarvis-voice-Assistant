@@ -17,3 +17,5 @@
 1. 安装依赖包：
 ```bash
 pip install PyQt6 requests speechrecognition pyttsx3 pyaudio
+ollama run llama3
+python v2/jarvis_gui_v2.py
