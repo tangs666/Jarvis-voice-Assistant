@@ -80,6 +80,14 @@ pip install PyQt6 vosk pygame pyaudio numpy requests edge-tts
    * **按键打断**：按下键盘 **`Space`（空格键）** 随时强行终止播报。
 
 ---
+## 🗺️ 未来规划 (Roadmap) & 欢迎贡献
+
+* [ ] 支持自定义唤醒词（Wake Word）
+* [ ] 增加更多 UI 主题与波形样式
+* [ ] 支持本地历史对话记忆导出
+
+如果你有好的想法或发现了 Bug，非常欢迎提交 **Issue** 或 **Pull Request** 参与建设！
+如果你喜欢这个项目，请点一个 **Star 🌟** 支持一下！
 
 ## 📄 开源协议
 本项目基于 MIT 协议开源，欢迎提交 Issue 和 Pull Request！
