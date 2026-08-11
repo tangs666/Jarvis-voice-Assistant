@@ -87,7 +87,11 @@ pip install PyQt6 vosk pygame pyaudio numpy requests edge-tts
 * [ ] 支持本地历史对话记忆导出
 
 如果你有好的想法或发现了 Bug，非常欢迎提交 **Issue** 或 **Pull Request** 参与建设！
-如果你喜欢这个项目，请点一个 **Star 🌟** 支持一下！
+如果你喜欢这个项目，请点一个 **Star 🌟** 支持一下
+## 📄 开源协议与版权声明
 
-## 📄 开源协议
-本项目基于 MIT 协议开源，欢迎提交 Issue 和 Pull Request！
+本项目基于 **[GNU General Public License v3.0 (GPL-3.0)](https://www.gnu.org/licenses/gpl-3.0.html)** 协议开源。
+
+* **自由使用与修改**：欢迎个人学习、研究以及开源社区的二次开发与交流。
+* **开源传染性**：任何基于本项目二次修改、衍生或引用的代码，**必须同样以 GPL-3.0 协议开源**，不得直接打包为商业闭源软件。
+* **商业授权**：若需在不遵循 GPL-3.0 开源条约的情况下进行商业化使用、变相盈利或打包销售，**必须事先取得作者的书面授权**。
